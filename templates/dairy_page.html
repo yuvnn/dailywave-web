@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- 서버 통신이 필요한 부분은 "<!--불러오기" 로 구분해 놓았어요! -->
+<!-- 버튼 누르면 결과 올라오고 cd돌아가는데 이거 성가시러우면 
+  css에서 .cd 에서 rotateForever 10s linear infinite;이거 지우면댐-->
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dailywave!</title>
+    <!-- flask용 연결 -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+
+    <!-- live server용 연결 -->
+    <link rel="stylesheet" href="../static/css/style.css">
+  </head>
+  <body>
+    <div class="ouput-window">
+      <div class="div">
+
+        <!-- header (weather, date) -->
+        <div class="header">
+            <img class="weather_icon" src="img/weather_icon.png" />
+            <div class="date">12/22</div> <!--불러오기-->
+            <button class="close_button">
+                <img class="close_icon" src="img/close_icon.png" alt="Close" />
+            </button>
+        </div>
+        
+        <!-- 입력창 -->
+        <textarea class="custom-textarea" placeholder="오늘의 기분을 들려주세요"></textarea>
+        <div class="text_blur"></div>
+
+        <!-- 출력창 -->
+        <div class="result">
+            <!-- 감정분석결과 -->
+            <div class="emo_group">
+              <div class="frame">
+                <div class="group">
+                  <div class="text-wrapper-1">행복 71%</div> <!--불러오기-->
+                  <div class="text-wrapper-2">기쁨 20%</div> <!--불러오기-->
+                  <div class="text-wrapper-2">슬픔 9%</div> <!--불러오기-->
+                </div>
+              </div>
+            </div>
+            <img class="cd" src="img/나상현씨밴드 찬란.jpg" /> <!--불러오기-->
+          </div>
+          <!-- cd -->
+          <div class="overlap-wrapper">
+            <div class="overlap-2">
+              <div class="content-container">
+                <button class="pause-button">
+                  <img class="pause" src="img/Pause.png" alt="Pause" />
+                </button>
+                <div class="text-wrapper-7">찬란 - 나상현씨밴드</div> <!--불러오기-->
+              </div>
+            </div>
+          </div> 
+          
+          
+        </div>
+        <script src="../static/js/diary_page.js"></script>    
+      </div>
+    </div>
+  </body>
+</html>
