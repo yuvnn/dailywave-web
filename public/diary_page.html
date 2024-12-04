@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dailywave!</title>
+    <link rel="stylesheet" href="/src/components/style.css">
+    <style>
+      .save-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: #888;
+        color: white;
+        font-size: 14px;
+        display: none; /* 처음에는 숨겨둡니다 */
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ouput-window">
+      <div class="div">
+        <!-- header (weather, date) -->
+        <div class="header">
+          <img class="weather_icon" src="img/weather_icon.png" />
+          <div class="date" id="selectedDate"></div> <!-- 날짜 고정되지 않음 -->
+          <button class="close_button" onclick="goBack()">
+            <img class="close_icon" src="img/close_icon.png" alt="Close" />
+          </button>
+        </div>
+
+        <!-- 입력창 -->
+        <textarea class="custom-textarea" id="moodTextarea" placeholder="오늘의 기분을 들려주세요" oninput="showSaveButton()"></textarea>
+        <div class="text_blur"></div>
+
+        <!-- 출력창 -->
+        <div class="result">
+          <div class="emo_group">
+            <div class="frame">
+              <div class="group">
+                <div class="text-wrapper-1">행복 71%</div>
+                <div class="text-wrapper-2">기쁨 20%</div>
+                <div class="text-wrapper-2">슬픔 9%</div>
+              </div>
+            </div>
+          </div>
+          <img class="cd" src="img/나상현씨밴드 찬란.jpg" id="cdImage" />
+        </div>
+
+        <!-- 오버랩 부분 -->
+        <div class="overlap-wrapper">
+          <div class="overlap-2">
+            <div class="content-container">
+              <button class="pause-button">
+                <img class="pause" src="img/Pause.png" alt="Pause" />
+              </button>
+              <div class="text-wrapper-7">찬란 - 나상현씨밴드</div> <!-- 고정된 음악 정보 -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script src="/src/diary_page.js"></script>
+
+    <script>
+      // 날짜를 URL 파라미터로 받기
+      const urlParams = new URLSearchParams(window.location.search);
+      const date = urlParams.get('date');
+      const selectedDateElement = document.getElementById('selectedDate');
+      if (date) {
+        selectedDateElement.textContent = `${date}`;
+      }
+
+      // 저장 버튼 표시하기
+      function showSaveButton() {
+        const saveButton = document.getElementById('saveButton');
+        const moodContent = document.getElementById('moodTextarea').value;
+
+        // 텍스트가 있으면 버튼을 표시
+        if (moodContent.trim() !== "") {
+          saveButton.style.display = 'block';
+        } else {
+          saveButton.style.display = 'none';
+        }
+      }
+
+      // 저장 기능
+      function saveContent() {
+        const moodContent = document.getElementById('moodTextarea').value;
+        const date = document.getElementById('selectedDate').textContent.trim();
+        
+        // 날짜가 선택되어 있으면 그 날짜에 내용 저장
+        if (date) {
+          localStorage.setItem(date, moodContent);
+        }
+
+        // 저장 후 버튼 숨기기
+        document.getElementById('saveButton').style.display = 'none';
+      }
+
+      // 페이지 로드 시 저장된 내용 불러오기
+      window.onload = function() {
+        const date = document.getElementById('selectedDate').textContent.trim();
+        if (date) {
+          const savedMood = localStorage.getItem(date);
+          if (savedMood) {
+            document.getElementById('moodTextarea').value = savedMood;
+          }
+        }
+
+        // 화면 크기 조정 시 SAVE 버튼 위치 조정
+        adjustSaveButtonPosition();
+      }
+
+      // 화면 크기 조정 시 SAVE 버튼 위치 조정
+      function adjustSaveButtonPosition() {
+        const saveButton = document.getElementById('saveButton');
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        // 화면 크기에 따라 버튼 위치 조정 (화면 크기에 따라 여백을 자동으로 변경)
+        const buttonWidth = saveButton.offsetWidth;
+        const buttonHeight = saveButton.offsetHeight;
+
+        // 버튼 위치가 화면 안으로 들어가도록 설정
+        const adjustedLeft = Math.min(20, screenWidth - buttonWidth - 20);
+        const adjustedBottom = Math.min(20, screenHeight - buttonHeight - 20);
+
+        saveButton.style.left = `${adjustedLeft}px`;
+        saveButton.style.bottom = `${adjustedBottom}px`;
+      }
+
+      // x 버튼 클릭 시 뒤로 가기
+      function goBack() {
+        const moodContent = document.getElementById('moodTextarea').value;
+        const date = document.getElementById('selectedDate').textContent.trim();
+
+        // 날짜가 선택되어 있으면 해당 날짜에 저장
+        if (date) {
+          localStorage.setItem(date, moodContent);
+        }
+        window.history.back();
+      }
+    </script>
+
+    <!-- SAVE 버튼 -->
+    <button class="save-button" id="saveButton" onclick="saveContent()">SAVE</button>
+  </body>
+</html>
