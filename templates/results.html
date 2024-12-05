@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감정 분석 결과</title>
+</head>
+<body>
+    <h1>감정 분석 결과</h1>
+    <p>최상위 감정 1: {{ result['최상위감정1'] }} ({{ result['최상위감정1비율'] * 100 }}%)</p>
+    <p>최상위 감정 2: {{ result['최상위감정2'] }} ({{ result['최상위감정2비율'] * 100 }}%)</p>
+    <p>최상위 감정 3: {{ result['최상위감정3'] }} ({{ result['최상위감정3비율'] * 100 }}%)</p>
+
+    <h2>추천 노래</h2>
+    <ul>
+        {% for song in result['노래결과'] %}
+        <li>
+            {{ song['노래제목'] }} - {{ song['아티스트'] }} 
+            <img src="{{ song['앨범표지'] }}" alt="앨범 표지" width="50" height="50">
+            (유사도: {{ song['유사도'] }})
+        </li>
+        {% endfor %}
+    </ul>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
