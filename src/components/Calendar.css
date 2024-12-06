@@ -1,0 +1,303 @@
+/* 기본 스타일 */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Auto layout */
+.display-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.gap-2 {
+  gap: 2px;
+}
+
+/* 크기 설정 */
+.width-40 {
+  width: 40px;
+}
+
+.height-40 {
+  height: 40px;
+}
+
+.width-19 {
+  width: 19px;
+}
+
+.height-19 {
+  height: 19px;
+}
+
+.width-22 {
+  width: 22px;
+}
+
+.height-19 {
+  height: 19px;
+}
+
+.margin-auto {
+  margin: 0 auto;
+}
+
+/* 글꼴 스타일 */
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.font-size-16 {
+  font-size: 16px;
+}
+
+.line-height-19 {
+  line-height: 19px;
+}
+
+.color-3e3333 {
+  color: #3E3333;
+}
+
+/* 아이템 스타일 */
+.flex-none {
+  flex: none;
+}
+
+.flex-grow-0 {
+  flex-grow: 0;
+}
+
+.order-0 {
+  order: 0;
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
+}
+
+.order-4 {
+  order: 4;
+}
+
+.order-5 {
+  order: 5;
+}
+
+.order-6 {
+  order: 6;
+}
+
+/* 세부 디자인 스타일 */
+.day {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.week {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 2px;
+  width: 290px;
+  height: 40px;
+}
+
+.font-styles {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+}
+
+.item-19 {
+  margin: 0 auto;
+  width: 19px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.item-20 {
+  margin: 0 auto;
+  width: 22px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.item-21 {
+  margin: 0 auto;
+  width: 18px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.item-22 {
+  margin: 0 auto;
+  width: 21px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.item-23 {
+  margin: 0 auto;
+  width: 21px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.item-24 {
+  margin: 0 auto;
+  width: 21px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.item-25 {
+  margin: 0 auto;
+  width: 21px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.item-26 {
+  margin: 0 auto;
+  width: 21px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.item-27 {
+  margin: 0 auto;
+  width: 20px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.item-28 {
+  margin: 0 auto;
+  width: 21px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E3333;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
