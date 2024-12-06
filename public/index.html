@@ -43,10 +43,24 @@
       color: #3E3333;
     }
 
+
+    .MonthNav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px; /* 버튼과 텍스트 간 간격 */
+    }
+
     .Before, .After {
       cursor: pointer;
-      margin-right: 50px;
+      margin: 0; /* 버튼의 불필요한 마진 제거 */
     }
+
+    .MonthText {
+      margin: 0 5px; /* 버튼과 텍스트 간 균등한 여백 */
+      font-size: 16px; /* 텍스트 크기 설정 */
+    }
+
 
     .DayContainer {
       width: 280px;
