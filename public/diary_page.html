@@ -71,9 +71,14 @@
       const urlParams = new URLSearchParams(window.location.search);
       const date = urlParams.get('date');
       const selectedDateElement = document.getElementById('selectedDate');
+
       if (date) {
-        selectedDateElement.textContent = `${date}`;
-      }
+                // '2024-11-20' 형식의 문자열을 '-'로 분리
+                const [year, month, day] = date.split('-');
+                // '11/20' 형식으로 출력
+                selectedDateElement.textContent = `${month}/${day}`
+            }
+
 
       // 저장 버튼 표시하기
       function showSaveButton() {
