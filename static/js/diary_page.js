@@ -31,19 +31,6 @@ if (date) {
   selectedDateElement.textContent = `${month}/${day}`;
 }
 
-// 저장 버튼 표시하기
-function showSaveButton() {
-  const saveButton = document.getElementById("saveButton");
-  const moodContent = document.getElementById("moodTextarea").value;
-
-  // 텍스트가 있으면 버튼을 표시
-  if (moodContent.trim() !== "") {
-    saveButton.style.display = "block";
-  } else {
-    saveButton.style.display = "none";
-  }
-}
-
 // 저장 기능
 function saveContent() {
   const moodContent = document.getElementById("moodTextarea").value;
@@ -101,11 +88,13 @@ document.querySelector('.pause-button').addEventListener('click', function () {
   const wrapper = document.querySelector('.overlap-wrapper');
   const result = document.querySelector('.result');
   const moodTextarea = document.getElementById('moodTextarea');
-  const songInfoWrapper = document.querySelector('.songInfo-wrapper');  // songInfo-wrapper 추가
+  const songInfoWrapper = document.querySelector('.songInfo-wrapper'); 
+  const songInfo = document.querySelector('.songInfo');
 
   // 'expanded'와 'show' 클래스 토글
   wrapper.classList.toggle('expanded');
   result.classList.toggle('show');
+
 
   // 사용자가 입력한 텍스트 가져오기
   const text = moodTextarea.value.trim();
