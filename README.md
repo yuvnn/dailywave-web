@@ -1,70 +1,8 @@
-# Getting Started with Create React App
+# NLP 기반 감정 분석을 통한 음악 추천 일기 웹 : DAILYWAVE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+현대 사회의 디지털 발전은 소통에서 비언어적 요소 부족과 감정을 숨기는 문화로 인해 감정 표현과 이해를 어렵게 만들고 있습니다. 
+이런 상황에서 일기는 감정을 이해하는 좋은 도구지만, 일기를 쓰고 성찰의 과정을 거치지 않는 다면  단순한 기록에 지나지 않습니다. 그렇기에 만약 AI가 일기를 분석해 오늘의 감정을 수치로 보여주고 그에 맞는 음악을 추천해준다면 어떨까요! 이러한 시스템이 있다면 우리는 스스로의 감정을 더 깊이 돌아보는 성찰의 시간을 더 쉽게 가질 수 있을 것입니다.
 
-## Available Scripts
+따라서 저희 프로젝트는 감정 분석 기반 음악 추천 시스템을 통해 감정의 안정과 공감능력을 높이고자 합니다. 결과적으로, 나와 서로를 더 잘 이해하는 가까운 사회가 되기를 기원하면서 이 프로젝트를 시작하게 되었습니다.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![alt text](descripe/image-1.png)
