@@ -5,4 +5,4 @@
 
 따라서 저희 프로젝트는 감정 분석 기반 음악 추천 시스템을 통해 감정의 안정과 공감능력을 높이고자 합니다. 결과적으로, 나와 서로를 더 잘 이해하는 가까운 사회가 되기를 기원하면서 이 프로젝트를 시작하게 되었습니다.
 
-![alt text](descripe/image-1.png)
+![image](https://github.com/user-attachments/assets/226dd2a9-b7ec-4ac7-8a3d-d447ee432535)
