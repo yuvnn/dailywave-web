@@ -1,0 +1,130 @@
+:root {
+  --left-arrow: url('../../public/assets/left-arrow1.png');
+  --right-arrow: url('../../public/assets/right-arrow1.png');
+}
+
+/* 초기화 */
+.react-calendar__navigation__label,
+.react-calendar__tile--active,
+.react-calendar__navigation__prev-button,
+.react-calendar__navigation__next-button{
+  background: transparent !important;
+  color: transparent !important;
+}
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+  display: none;
+}
+
+/* container */
+.react-calendar{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border : none;
+}
+
+/* year,month */
+
+.react-calendar__navigation {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin-top : 1rem;
+  margin-bottom : 4rem;
+}
+
+.react-calendar__navigation__prev-button{
+  background: var(--left-arrow) no-repeat center center !important; 
+  background-size: 3rem 3rem !important;
+}
+
+.react-calendar__navigation__next-button{
+  background: var(--right-arrow) no-repeat center center !important; 
+  background-size: 3rem 3rem !important;
+}
+
+.year-month {
+  white-space: pre-line;
+  font-family: "Bagel Fat One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-dwblue);
+  
+}
+
+.year {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.month {
+  margin: -1rem;
+}
+
+/* calendar__viewContainer */
+.react-calendar__viewContainer{
+  padding: 1.5rem;
+  padding-top: 2rem;
+  background-color: #EEEEEE;
+}
+
+/* weekdays */
+.react-calendar__month-view__weekdays{
+  margin-bottom : 1rem;
+
+}
+
+.react-calendar__month-view__weekdays__weekday,
+.react-calendar__month-view__weekdays__weekday--weekend {
+  all: unset; /* 기본 브라우저 및 라이브러리 스타일 제거 */
+  font-size: 14px;
+  color: var(--color-dwblue-light); /* 원하는 색상 */
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+}
+
+/* days */
+
+.react-calendar__tile {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-calendar__month-view__days__day--weekend{
+  color: black;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth{
+  color: lightgray;
+}
+
+.react-calendar__tile--active abbr{
+  background: var(--color-dwblue) !important;
+  width: 80%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
