@@ -80,11 +80,11 @@ def calculation(emotion_scores, top_n=5):
         return return_result(top_emotions, [])
 
     # 6. 유사도 계산
-    score_matrix = np.array(df["score"].tolist())
     input_vector = np.array(emotion_scores)
-    dot = score_matrix @ input_vector
-    norms = np.linalg.norm(score_matrix, axis=1) * np.linalg.norm(input_vector)
-    similarity = np.divide(dot, norms, out=np.zeros_like(dot), where=norms != 0)
+    input_vector = input_vector / np.linalg.norm(input_vector)
+
+    score_matrix = np.array(df["score"].tolist())
+    similarity = score_matrix @ input_vector
     df["similarity"] = similarity
 
     # 7. 유사도 상위 N개 추출
