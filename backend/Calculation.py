@@ -15,33 +15,36 @@ ID2LABEL_KOR = {0: '분노',
 def cosine_similarity(vec1, vec2):
     """
     두 벡터 간의 코사인 유사도를 계산
-
-    Args:
-        vec1 (array-like): 첫 번째 벡터
-        vec2 (array-like): 두 번째 벡터
-
-    Returns:
-        float: 코사인 유사도 (0.0 ~ 1.0)
+    벡터의 크기가 0이면 0을 반환
     """
-    v1 = np.asarray(vec1, dtype=np.float32)
-    v2 = np.asarray(vec2, dtype=np.float32)
-    norm1 = np.linalg.norm(v1)
-    norm2 = np.linalg.norm(v2)
+    dot_product = np.dot(vec1, vec2)
+    norm1 = np.linalg.norm(vec1)
+    norm2 = np.linalg.norm(vec2)
     if norm1 == 0 or norm2 == 0:
         return 0.0
-    return float(np.dot(v1, v2) / (norm1 * norm2))
+    return dot_product / (norm1 * norm2)
+
 
 def get_database_connection():
     """
-    MongoDB 데이터베이스 컬렉션에 연결하여 반환
-
-    Returns:
-        Collection: dailywave_molon_songs 컬렉션 객체
+    MongoDB에서 dailywave_molon_songs 컬렉션 객체를 반환합니다.
     """
-    client = MongoClient("mongodb://localhost:27017/")  # MongoDB URI
+    client = MongoClient("mongodb://localhost:27017/")  # 연결 URI 필요시 수정
     db = client["local"]  # 데이터베이스 이름
     collection = db["dailywave_molon_songs"]  # 컬렉션 이름
     return collection
+
+def return_result(top_emotions, song_results):
+    top1, top2, top3 = top_emotions[:3]
+    return {
+        "최상위감정1": top1["감정"],
+        "최상위감정1비율": top1["비율"],
+        "최상위감정2": top2["감정"],
+        "최상위감정2비율": top2["비율"],
+        "최상위감정3": top3["감정"],
+        "최상위감정3비율": top3["비율"],
+        "노래결과": song_results,
+    }
 
 def calculation(emotion_scores, top_n=5):
     # 1. 감정 벡터 유효성 검사
@@ -65,33 +68,16 @@ def calculation(emotion_scores, top_n=5):
     data = list(cursor)
 
     if not data:
-        return {
-            "최상위감정1": top_emotions[0]["감정"],
-            "최상위감정1비율": top_emotions[0]["비율"],
-            "최상위감정2": top_emotions[1]["감정"],
-            "최상위감정2비율": top_emotions[1]["비율"],
-            "최상위감정3": top_emotions[2]["감정"],
-            "최상위감정3비율": top_emotions[2]["비율"],
-            "노래결과": [],
-        }
+        return return_result(top_emotions, [])
 
     # 4. DataFrame으로 변환
     df = pd.DataFrame(data)
 
-    # 5. score 필드 변환 및 유효성 필터링
-    df["score"] = df["score"].apply(lambda x: json.loads(x) if isinstance(x, str) else x)
+    # 5. score 필드 유효성 필터링
     df = df[df["score"].apply(lambda x: isinstance(x, list) and len(x) == 6)]
 
     if df.empty:
-        return {
-            "최상위감정1": top_emotions[0]["감정"],
-            "최상위감정1비율": top_emotions[0]["비율"],
-            "최상위감정2": top_emotions[1]["감정"],
-            "최상위감정2비율": top_emotions[1]["비율"],
-            "최상위감정3": top_emotions[2]["감정"],
-            "최상위감정3비율": top_emotions[2]["비율"],
-            "노래결과": [],
-        }
+        return return_result(top_emotions, [])
 
     # 6. 유사도 계산
     score_matrix = np.array(df["score"].tolist())
@@ -115,15 +101,7 @@ def calculation(emotion_scores, top_n=5):
     ]
 
     # 8. 결과 반환
-    return {
-        "최상위감정1": top_emotions[0]["감정"],
-        "최상위감정1비율": top_emotions[0]["비율"],
-        "최상위감정2": top_emotions[1]["감정"],
-        "최상위감정2비율": top_emotions[1]["비율"],
-        "최상위감정3": top_emotions[2]["감정"],
-        "최상위감정3비율": top_emotions[2]["비율"],
-        "노래결과": song_results,
-    }
+    return return_result(top_emotions, song_results)
 
 
 if __name__ == "__main__":
@@ -134,4 +112,4 @@ if __name__ == "__main__":
     df_with_similarity = calculation(result, top_n=top_n)
     end_time = time.time()
     print(df_with_similarity)
-    print(f"실행 시간: {end_time - start_time:.4f}초")
+    print(f"수행시간: {end_time - start_time:.4f}초")
