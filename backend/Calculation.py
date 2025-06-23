@@ -64,7 +64,13 @@ def calculation(emotion_scores, top_n=5):
 
     # 3. MongoDB에서 데이터 불러오기
     collection = get_database_connection()
-    cursor = collection.find({}, {"song_no": 1, "title": 1, "artist": 1, "score": 1})
+
+    # 상위 감정 기준 필터 + 제한된 수만 불러오기
+    top1_index = np.argmax(result)
+    cursor = collection.find(
+        {f"score.{top1_index}": {"$gt": 0.2}},  # 상위 감정이 높은 곡
+        {"song_no": 1, "title": 1, "artist": 1, "score": 1}
+    ).limit(1000)
     data = list(cursor)
 
     if not data:
